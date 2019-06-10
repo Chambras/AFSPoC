@@ -14,7 +14,7 @@ variable "tags" {
   type = "map"
   default = {
     "Environment" = "Dev"
-    "Project" = "AFPoC"
+    "Project" = "AFSPoC"
     "BillingCode" = "Internal"
   }
 }

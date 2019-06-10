@@ -1,3 +1,16 @@
+resource "azurerm_container_registry" "registry" {
+  name                     = "afsContainerRegistry"
+  resource_group_name      = "${azurerm_resource_group.genericRG.name}"
+  location                 = "${azurerm_resource_group.genericRG.location}"
+  sku                      = "Basic"
+  admin_enabled            = false
+
+  #if you need/wat geo-repplication you need premium sku
+  #     georeplication_locations = ["East US", "West Europe"]
+  
+  tags = "${var.tags}"
+}
+
 resource "azurerm_container_group" "containerGroup" {
   name                = "afsContainerGroupPOC"
   location            = "${azurerm_resource_group.genericRG.location}"
@@ -18,6 +31,6 @@ resource "azurerm_container_group" "containerGroup" {
       protocol = "TCP"
     }
   }
-  
+
   tags = "${var.tags}"
 }

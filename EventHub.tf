@@ -5,7 +5,7 @@ resource "azurerm_eventhub_namespace" "eventHubNameSpace" {
   sku                 = "Standard"
   capacity            = 2
 
-  # kafka_enabled = "true"
+  kafka_enabled = "true"
 
   tags = "${var.tags}"
 }
